@@ -1,0 +1,61 @@
+import math
+import random
+
+print("#================Zadanie1=============================","\n")
+
+#wspolrzedne bohatera
+hero = (100,100)
+smok_position = (random.randint(0,200),random.randint(0,200))
+
+x = hero[0] - smok_position[0]
+y = hero[1] - smok_position[1]
+distance_1 = math.hypot(x,y)
+print("dystans bohatera od smoka",distance_1,"\n")
+x = smok_position[0] - hero[0]
+y = smok_position[1] - hero[1]
+distance_2 = math.hypot(x,y)
+print("dystans smoka od bohatera",distance_2,"\n")
+result_1 = distance_1 - distance_2
+print("rożnica dystansu bohatera od smoka od dystansu bohatera od smoka:",result_1)
+
+
+
+
+print("#================Zadanie2=============================","\n")
+#wspolrzedne wrogow wraz z nazwą
+a = (random.randint(0,200),random.randint(0,200),"smokaaaa")
+b = (random.randint(0,200),random.randint(0,200),"smokbbbb")
+c = (random.randint(0,200),random.randint(0,200),"smokcccc")
+d = (random.randint(0,200),random.randint(0,200),"smokdddd")
+e = (random.randint(0,200),random.randint(0,200),"smokeeee")
+f = (random.randint(0,200),random.randint(0,200),"smokffff")
+g = (random.randint(0,200),random.randint(0,200),"smokgggg")
+h = (random.randint(0,200),random.randint(0,200),"smokhhhh")
+i = (random.randint(0,200),random.randint(0,200),"smokiiii")
+j = (random.randint(0,200),random.randint(0,200),"smokjjjj")
+k = (random.randint(0,200),random.randint(0,200),"smokkkkk")
+l = (random.randint(0,200),random.randint(0,200),"smokllll")
+m = (random.randint(0,200),random.randint(0,200),"smokmmmm")
+
+#lista wszpolrznych wrogow
+enemy_position_list=(a,b,c,d,e,f,g,h,i,j,k,l,m)
+distance_list = []
+
+for enemy_position in enemy_position_list:
+    #wyswietla pozycje wroga
+    print(enemy_position)
+    x = abs(hero[0] - enemy_position[0])
+    #wyswietla odleglosc od bohatera na osi x
+    print(x)
+    y = abs(hero[1] - enemy_position[1])
+    #wyswietla odleglosc od bohatera na osi y
+    print(y)
+    distance = math.hypot(x,y)
+    #wyswietla odleglosc bohatera od wroga
+    print(distance)
+    distance_list.append((distance,enemy_position[2]))
+
+closest_enemy = min(distance_list)
+print("najbliżej ciebie jest: ",closest_enemy[0],"nazwa jego to",closest_enemy[1])
+farthest_enemy = max(distance_list)
+print("najdalej ciebie jest: ",farthest_enemy[0],"nazwa jego to",farthest_enemy[1])
